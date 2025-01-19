@@ -5,8 +5,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+    origin: 'https://task-management-er4b-cxcygo0lp-prasadbylapudis-projects.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }));app.use(express.json());
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');

@@ -8,6 +8,7 @@ const LoginPage = ({ onLogin }) => {
   const handleLogin = (token) => {
     onLogin(token);
     const decoded = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+    console.log("decoded", decoded);
     navigate(decoded.role === 'admin' ? '/admin' : '/user');
   };
 

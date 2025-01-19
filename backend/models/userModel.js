@@ -6,13 +6,13 @@ const users = [
   {
     id: 1,
     username: 'admin',
-    password: 'admin', // Hashed password
+    password: bcrypt.hashSync('admin', 10), // Hashed password
     role: 'admin', // Admin user
   },
   {
     id: 2,
     username: 'user',
-    password: 'user', // Hashed password
+    password: bcrypt.hashSync('user', 10), // Hashed password
     role: 'user', // Regular user
   },
 ];

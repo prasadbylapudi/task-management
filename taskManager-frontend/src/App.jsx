@@ -10,6 +10,7 @@ const App = () => {
 
   const handleLogin = (token) => {
     const decoded = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+    console.log("decoded", decoded);
     setToken(token);
     setUserRole(decoded.role);
   };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const backendUrl = 'https://task-management-4bn7aho7g-prasadbylapudis-projects.vercel.app';
+// const backendUrl = 'http://localhost:5000';
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -9,19 +10,20 @@ const LoginForm = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("username", username);
+      console.log("password", password);
       const response = await fetch(`${backendUrl}/api/auth/login`, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', 
         body: JSON.stringify({ username, password }),
       });
-
+      console.log("response", response);
       if (response.ok) {
         const data = await response.json();
         onLogin(data.token);
+        console.log("data.token", data.token);
       } else {
-        alert('Invalid credentials');
+        alert('Invalid credentials username or password');
       }
     } catch (error) {
       console.error('Error during login:', error);

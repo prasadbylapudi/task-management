@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const backendUrl = 'https://task-management-4bn7aho7g-prasadbylapudis-projects.vercel.app/';
+const backendUrl = 'https://task-management-4bn7aho7g-prasadbylapudis-projects.vercel.app';
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -12,6 +12,7 @@ const LoginForm = ({ onLogin }) => {
       const response = await fetch(`${backendUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include', 
         body: JSON.stringify({ username, password }),
       });
 

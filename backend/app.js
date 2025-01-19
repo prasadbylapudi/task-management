@@ -8,7 +8,7 @@ dotenv.config();
 app.use(express.json());
 
   app.use(cors({
-    origin: 'https://task-management-er4b-cxcygo0lp-prasadbylapudis-projects.vercel.app/', // Replace with your frontend URL
+    origin: 'https://task-management-er4b-cxcygo0lp-prasadbylapudis-projects.vercel.app', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }));

@@ -35,6 +35,14 @@ task-approval-system/
 - Backend: Node.js, Express.js
 - Authentication: JSON Web Tokens (JWT)
 
+  ##Frontend
+  - login page
+    ![Image](https://github.com/user-attachments/assets/3e6ef46b-206d-4e46-8328-6ee8ffa6b1aa)
+  -admin Dashboard page
+  ![Image](https://github.com/user-attachments/assets/c88ec821-ffe1-45f1-b4c4-7079bb76a2df)
+  - userDashboard page
+   ![Image](https://github.com/user-attachments/assets/ba4631fd-ed5b-4653-9a5d-485afa89ac99)
+
 ### Installation
 
 1. Download the project

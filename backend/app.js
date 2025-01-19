@@ -7,11 +7,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 app.use(express.json());
 
-  app.use(cors({
-    origin: 'https://task-management-er4b-cxcygo0lp-prasadbylapudis-projects.vercel.app', // Replace with your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }));
+  const corsOptions = {
+    origin: 'http://localhost:5173', // Allow your frontend's origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  };
+  
+  app.use(cors(corsOptions));
+
   app.use(bodyParser.urlencoded({ extended: true })); 
 // Import routes
 const authRoutes = require('./routes/authRoutes');

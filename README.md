@@ -91,11 +91,72 @@ npm install
 
 ### API Endpoints
 
-# The following endpoints are available for interacting with the backend).
-|
+## Authentication
+- POST /api/auth/login
+- Authenticate a user and receive a JWT token.|
+ ```
+ json
+ {
+  "username": "user",
+  "password": "user"
+}```
+
+-Admin Login
+
+ ```
+ json
+ {
+  "username": "admin",
+  "password": "admin"
+}```
 
 
+### 2. Tasks
 
+#### Create Task
+- **URL:** `/tasks`
+- **Method:** `POST`
+- **Authentication:** Required
+- **Content-Type:** `application/json`
+
+**Request Body:**
+```
+json
+{
+"title": "string",
+"description": "string",
+"dueDate": "2024-03-20T10:00:00Z",
+"priority": "high",
+"assignedTo": "user_id"
+}
+```
+
+
+#### Get All Tasks
+- **URL:** `/tasks`
+- **Method:** `GET`
+- **Authentication:** Required
+
+**Query Parameters:**
+- `status` (optional): Filter by status (pending, approved, rejected)
+
+**Success Response:** (200 OK)
+
+
+#### Approve/Reject Task
+- **URL:** `/tasks/:taskId/approve`
+- **Method:** `PUT`
+- **Authentication:** Required (Admin only)
+- **Content-Type:** `application/json`
+
+**Request Body:**
+
+```json
+{
+"status": "approved", // or "rejected"
+"comment": "string" // optional
+}
+```
 
 
 

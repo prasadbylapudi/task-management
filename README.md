@@ -137,8 +137,6 @@ json
 - **Method:** `GET`
 - **Authentication:** Required
 
-**Query Parameters:**
-- `status` (optional): Filter by status (pending, approved, rejected)
 
 **Success Response:** (200 OK)
 

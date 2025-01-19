@@ -11,12 +11,17 @@ router.post('/login', (req, res) => {
   const user = findUserByUsername(username);
 
   if (!user) {
-    return res.status(400).json({ message: 'Invalid credentials' });
+    return res.status(400).json({ message: 'Invalid credentials username' });
   }
 
-  if (!bcrypt.compareSync(password, user.password)) {
-    return res.status(400).json({ message: 'Invalid credentials' });
+//   if (!bcrypt.compareSync(password, user.password)) {
+//     return res.status(400).json({ message: 'Invalid credentials' });
+//   }
+
+  if (password !== user.password) {
+    return res.status(400).json({ message: 'Invalid credentials password' });
   }
+
 
   // Generate JWT token
   const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, process.env.JWT_SECRET, {
